@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="{% static 'css/lab1style.css' %}"/>
+    </head>
+    <body>
+        <form class="input-box" action="/lab1/" method="post">
+            <h1 class="header">Лабораторная работа №1</h1>
+            <div class="form-box">
+                <h1 style="margin: 5px; height: fit-content; justify-self: center;">Имя</h1>
+                {% csrf_token %}
+                {{ form.name }}
+            </div>
+            <div class="form-box">
+                <h1 style="margin: 5px; height: fit-content; justify-self: center;">Фамилия</h1>
+                {% csrf_token %}
+                {{ form.last_name }}
+            </div>
+            <div class="form-box">
+                <h1 style="margin: 5px; height: fit-content; justify-self: center;">E-mail</h1>
+                {% csrf_token %}
+                {{ form.email }}
+            </div>
+            <button class="button" type="submit">Отправить</button>
+        </form>
+    </body>
+</html>
