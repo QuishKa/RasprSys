@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="{% static 'css/lab1style.css' %}"/>
+    </head>
+    <body>
+        <form class="input-box" action="/lab3/" method="post">
+            <h1 class="header">Лабораторная работа №3</h1>
+            <div class="form-box">
+                <h1 style="margin: 5px; height: fit-content; justify-self: center;">Текст</h1>
+                {% csrf_token %}
+                <textarea name="text" placeholder="{{ text }}" style="height: 200px; font-size: 18px;"></textarea>
+            </div>
+            <div class="form-box">
+                <h1 style="margin: 5px; height: fit-content; justify-self: center;">Поиск</h1>
+                <input id="search" name="search" placeholder="Поиск по тексту" list="words" class="input" style="font-size: 18px;"/>
+                {% ifchanged words %}
+                    <h1>{{ form.search.value }}</h1>
+                {% endifchanged %}
+                <datalist id="words">
+                    {% for word in words %}
+                        <option value="{{ word }}" ></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <button class="button" type="submit">Сохранить текст</button>
+        </form>
+    </body>
+</html>

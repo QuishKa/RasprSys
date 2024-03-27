@@ -56,7 +56,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / "lab1", "lab2"
+            BASE_DIR / "lab1", "lab2", "lab3"
         ],
         'APP_DIRS': True,
         'OPTIONS': {
